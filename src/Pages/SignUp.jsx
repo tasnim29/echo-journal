@@ -23,12 +23,13 @@ const SignUp = () => {
     const password = form.password.value;
     console.log(name, email, photo, password);
 
-    const hasLowercase = /(?=.*[a-z])/.test(password);
+    const hasNumber = /(?=.*\d)/.test(password);
+
     const hasUppercase = /(?=.*[A-Z])/.test(password);
-    const hasMinLength = /.{8,}/.test(password);
+    const hasMinLength = /.{6,}/.test(password);
     const hasSpecialChar = /[!@#$%^&*()_\-+={}[\]:;"'|<>,.?/~`]/.test(password);
 
-    if (!hasLowercase || !hasUppercase || !hasMinLength || !hasSpecialChar) {
+    if (!hasNumber || !hasUppercase || !hasMinLength || !hasSpecialChar) {
       return toast.error(
         "Password must be at least 8 characters, include one lowercase and one uppercase letter, and a special character "
       );
