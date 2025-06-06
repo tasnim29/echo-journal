@@ -9,7 +9,7 @@ import Lottie from "lottie-react";
 
 const SignUp = () => {
   const navigation = useNavigate();
-  const { createUser, googleLogin, setUser, updateUserProfile, theme } =
+  const { createUser, googleLogin, setUser, updateUserProfile } =
     use(AuthContext);
   // passwordShow toggle state
   const [showPassword, setShowPassword] = useState(false);
@@ -77,12 +77,12 @@ const SignUp = () => {
       });
   };
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-md rounded-md my-10 bg-green-50 border border-green-200">
+    <div className="w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-[#ffffff] border border-[#f3f4f6]">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-green-800 mb-2">
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#d72050] mb-2">
           Register
         </h1>
-        <p className="text-sm sm:text-base text-green-700">
+        <p className="text-sm sm:text-base text-[#374151]">
           Create your account
         </p>
       </div>
@@ -95,7 +95,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block mb-1 text-sm text-green-800"
+                className="block mb-1 text-sm text-[#374151]"
               >
                 Name
               </label>
@@ -104,7 +104,7 @@ const SignUp = () => {
                 name="name"
                 id="name"
                 placeholder="Enter your full name"
-                className="w-full px-3 py-2 border border-green-300 rounded-md bg-green-100 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm sm:text-base"
+                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
               />
             </div>
 
@@ -112,7 +112,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block mb-1 text-sm text-green-800"
+                className="block mb-1 text-sm text-[#374151]"
               >
                 Email address
               </label>
@@ -121,7 +121,7 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="leroy@jenkins.com"
-                className="w-full px-3 py-2 border border-green-300 rounded-md bg-green-100 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm sm:text-base"
+                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
               />
             </div>
 
@@ -129,7 +129,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="photo"
-                className="block mb-1 text-sm text-green-800"
+                className="block mb-1 text-sm text-[#374151]"
               >
                 Photo URL
               </label>
@@ -138,7 +138,7 @@ const SignUp = () => {
                 name="photo"
                 id="photo"
                 placeholder="Enter the URL of your image"
-                className="w-full px-3 py-2 border border-green-300 rounded-md bg-green-100 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm sm:text-base"
+                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
               />
             </div>
 
@@ -146,7 +146,7 @@ const SignUp = () => {
             <div className="relative">
               <label
                 htmlFor="password"
-                className="block mb-1 text-sm text-green-800"
+                className="block mb-1 text-sm text-[#374151]"
               >
                 Password
               </label>
@@ -155,15 +155,11 @@ const SignUp = () => {
                 name="password"
                 id="password"
                 placeholder="*****"
-                className={`w-full px-3 py-2 border border-green-300 rounded-md bg-green-100 placeholder-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm sm:text-base ${
-                  theme === "dark" && "text-black"
-                }`}
+                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
-                className={`absolute right-4 top-9 cursor-pointer ${
-                  theme === "dark" && "text-black"
-                }`}
+                className="absolute right-4 top-9 cursor-pointer text-[#374151]"
               >
                 {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
               </span>
@@ -174,24 +170,24 @@ const SignUp = () => {
           <button
             onClick={handleGoogle}
             type="button"
-            className="flex items-center justify-center gap-2 bg-white text-green-700 border border-green-300 hover:bg-green-100 w-full px-4 py-2 rounded-md transition text-sm sm:text-base"
+            className="flex items-center justify-center gap-2 btn btn-outline btn-secondary w-full"
           >
-            <FcGoogle size={20} /> Login with Google
+            <FcGoogle size={20} /> Register with Google
           </button>
 
           {/* Submit + Redirect */}
           <div className="space-y-2">
             <button
               type="submit"
-              className="w-full px-4 py-3 font-semibold rounded-md bg-green-600 text-white hover:bg-green-700 transition text-sm sm:text-base"
+              className="btn btn-outline btn-primary w-full"
             >
               Register
             </button>
-            <p className="px-6 text-sm text-center text-green-700">
+            <p className="px-6 text-sm text-center text-[#374151]">
               Already have an account?
               <Link
                 to="/signin"
-                className="hover:underline text-green-800 font-medium ml-1"
+                className="hover:underline text-[#d72050] font-medium ml-1"
               >
                 Log In
               </Link>
