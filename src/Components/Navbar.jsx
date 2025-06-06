@@ -20,6 +20,18 @@ const Navbar = () => {
       <li className=" font-semibold text-sm ">
         <NavLink to="/">Home</NavLink>
       </li>
+      <li className=" font-semibold text-sm ">
+        <NavLink to="/addBlog">Add Blog</NavLink>
+      </li>
+      <li className=" font-semibold text-sm ">
+        <NavLink to="/allBlog">All blogs</NavLink>
+      </li>
+      <li className=" font-semibold text-sm ">
+        <NavLink to="/featuredBlog"> Featured Blogs</NavLink>
+      </li>
+      <li className=" font-semibold text-sm ">
+        <NavLink to="/wishlist">Wishlist </NavLink>
+      </li>
     </>
   );
   return (
