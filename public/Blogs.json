@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Top 5 Tech Trends to Watch in 2025",
+    "excerpt": "Stay ahead with the latest innovations in AI, Web3, and edge computing shaping the future.",
+    "image": "https://i.ibb.co/q3yPvmdn/tech.webp",
+    "category": "Tech"
+  },
+  {
+    "id": 2,
+    "title": "How to Stay Fit with Minimal Equipment",
+    "excerpt": "Discover simple home workout routines that keep you healthy and strong without the gym.",
+    "image": "https://i.ibb.co/chy4SHC2/fit.webp",
+    "category": "Lifestyle"
+  },
+  {
+    "id": 3,
+    "title": "Champions League: What to Expect This Season",
+    "excerpt": "An in-depth look at the top contenders and surprise teams in this year’s Champions League.",
+    "image": "https://i.ibb.co/9mZpHC6H/ucl.jpg",
+    "category": "Sports"
+  },
+  {
+    "id": 4,
+    "title": "Exploring the Hidden Gems of Iceland",
+    "excerpt": "From ice caves to waterfalls, uncover Iceland’s most breathtaking destinations for your next adventure.",
+    "image": "https://i.ibb.co/W4hvLFJZ/hidden-gems-in-iceland-2.jpg",
+    "category": "Travel"
+  }
+]
