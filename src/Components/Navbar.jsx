@@ -91,7 +91,7 @@ const Navbar = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              stroke="#374151"
+              // stroke="#374151"
             >
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import Lottie from "lottie-react";
 import React from "react";
 
@@ -8,6 +9,17 @@ const AddBlog = () => {
     const formData = new FormData(form);
     const newBlog = Object.fromEntries(formData.entries());
     console.log(newBlog);
+
+    // axios
+    axios
+      .post("http://localhost:3000/blogs", newBlog)
+      .then((result) => {
+        console.log(result.data);
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-[#ffffff] border border-[#f3f4f6]">
@@ -54,7 +66,7 @@ const AddBlog = () => {
 
             <div className="col-span-full">
               <label htmlFor="address" className="text-sm text-[#374151]">
-                Blog Address
+                Authors Address
               </label>
               <input
                 id="address"
@@ -88,6 +100,7 @@ const AddBlog = () => {
               </label>
               <input
                 id="state"
+                name="name"
                 type="text"
                 placeholder="Your name"
                 className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
