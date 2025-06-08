@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import React, { useEffect, useState } from "react";
+
 import AllBlogsCard from "../Components/AllBlogsCard";
 import { FcSearch } from "react-icons/fc";
 
 const AllBlog = () => {
-  const blogs = useLoaderData();
+  const [blogs, setBlogs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const handleOnchange = (e) => {
-    setSelectedCategory(e.target.value);
-  };
+  const [search, setSearch] = useState("");
+  console.log(search);
 
-  const filteredByCategory = blogs.filter((blog) => {
-    const matchedCategory =
-      selectedCategory === "" || blog.category === selectedCategory;
-    return matchedCategory;
-  });
+  useEffect(() => {
+    fetch(
+      `http://localhost:3000/allBlogs?searchParams=${search}&category=${selectedCategory}`
+    )
+      .then((res) => res.json())
+      .then((data) => setBlogs(data));
+  }, [search, selectedCategory]);
 
   return (
     <div className="my-20 max-w-7xl mx-auto">
@@ -27,6 +28,7 @@ const AllBlog = () => {
           <FcSearch size={20} className="text-gray-500" />
           <input
             className="w-full bg-transparent focus:outline-none text-sm "
+            onChange={(e) => setSearch(e.target.value)}
             type="search"
             name="search"
             placeholder="Search by title"
@@ -35,7 +37,7 @@ const AllBlog = () => {
         {/* dropdown menu */}
         <select
           defaultValue={""}
-          onChange={handleOnchange}
+          onChange={(e) => setSelectedCategory(e.target.value)}
           name="category"
           className="select select-bordered  w-full md:w-52 "
         >
@@ -50,7 +52,7 @@ const AllBlog = () => {
         </select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {filteredByCategory.map((blog) => (
+        {blogs.map((blog) => (
           <AllBlogsCard key={blog._id} blog={blog}></AllBlogsCard>
         ))}
       </div>
