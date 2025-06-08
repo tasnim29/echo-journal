@@ -10,8 +10,9 @@ const AllBlog = () => {
   console.log(search);
 
   useEffect(() => {
+    const encodedCategory = encodeURIComponent(selectedCategory);
     fetch(
-      `http://localhost:3000/allBlogs?searchParams=${search}&category=${selectedCategory}`
+      `http://localhost:3000/allBlogs?searchParams=${search}&category=${encodedCategory}`
     )
       .then((res) => res.json())
       .then((data) => setBlogs(data));

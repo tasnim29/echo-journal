@@ -1,7 +1,32 @@
-import React from "react";
+import axios from "axios";
+import React, { use } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Context/AuthContext";
+import { Link } from "react-router";
 
 const AllBlogsCard = ({ blog }) => {
-  const { title, imageURL, short, category } = blog;
+  const { user } = use(AuthContext);
+  const { _id, title, imageURL, short, category } = blog;
+  const handleWishlist = () => {
+    const wishlist = {
+      blogId: _id,
+      userEmail: user.email,
+    };
+
+    axios
+      .post(`http://localhost:3000/wishlist/${_id}`, wishlist)
+      .then((result) => {
+        console.log(result.data);
+        Swal.fire({
+          title: "Successfully added the blog in the wishlist",
+          icon: "success",
+          draggable: true,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="card bg-base-100 shadow-2xl">
       <figure className="px-10 pt-10">
@@ -16,10 +41,16 @@ const AllBlogsCard = ({ blog }) => {
         <div className="badge badge-secondary">{category}</div>
         <p>{short}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-sm btn-outline bg-[#d72050] text-[#ffffff]">
+          <Link
+            to={`/blogDetails/${_id}`}
+            className="btn btn-sm btn-outline bg-[#d72050] text-[#ffffff]"
+          >
             Details{" "}
-          </button>
-          <button className="btn btn-sm btn-outline bg-[#d72050] text-[#ffffff]">
+          </Link>
+          <button
+            onClick={handleWishlist}
+            className="btn btn-sm btn-outline bg-[#d72050] text-[#ffffff]"
+          >
             Wishlist
           </button>
         </div>

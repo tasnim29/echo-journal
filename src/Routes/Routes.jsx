@@ -9,6 +9,7 @@ import AllBlog from "../Pages/AllBlog";
 import FeaturedBlog from "../Pages/FeaturedBlog";
 import Wishlist from "../Pages/Wishlist";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import BlogDetails from "../Pages/BlogDetails";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,12 @@ export const router = createBrowserRouter([
         path: "/allBlog",
 
         Component: AllBlog,
+      },
+      {
+        path: "/blogDetails/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/blogs/${params.id}`),
+        Component: BlogDetails,
       },
       {
         path: "/featuredBlog",
