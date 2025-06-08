@@ -30,6 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allBlog",
+        loader: () => fetch("http://localhost:3000/allBlogs"),
         Component: AllBlog,
       },
       {
