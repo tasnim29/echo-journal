@@ -1,11 +1,38 @@
+import axios from "axios";
 import React from "react";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdateBlog = () => {
   const blog = useLoaderData();
   //   console.log(blog);
   const { _id, title, imageURL, name, short, long, address, category, email } =
     blog;
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const updatedBlog = Object.fromEntries(formData.entries());
+    // console.log(updatedBlog);
+
+    // axios
+    axios
+      .put(`http://localhost:3000/blogs/${_id}`, updatedBlog)
+      .then((res) => {
+        console.log(res.data);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your blog has been updated",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-[#ffffff] border border-[#f3f4f6]">
       <div className="mb-8 text-center">
@@ -17,7 +44,10 @@ const UpdateBlog = () => {
         </p>
       </div>
 
-      <form className="container flex flex-col mx-auto space-y-12">
+      <form
+        onSubmit={handleUpdate}
+        className="container flex flex-col mx-auto space-y-12"
+      >
         <fieldset className="grid grid-cols-6 gap-6 p-6 rounded-md bg-[#f9fafb]">
           <div className="col-span-6 sm:col-span-3">
             <label htmlFor="title" className="text-sm text-[#374151]">
@@ -138,7 +168,7 @@ const UpdateBlog = () => {
               className="bg-[#d72050] btn w-full text-white font-semibold py-2 rounded-md hover:bg-[#bb1c45] transition duration-200"
               type="submit"
             >
-              Submit
+              Update
             </button>
           </div>
         </fieldset>

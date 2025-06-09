@@ -87,7 +87,7 @@ const BlogDetails = () => {
           </button>
           {editButton && (
             <div>
-              {user.email === email ? (
+              {user?.email === email ? (
                 <Link
                   to={`/updateBlog/${_id}`}
                   className="cursor-pointer absolute right-0 mt-2 bg-gray-800 text-base-200 px-8 py-2 border rounded-md font-semibold transition-all duration-2000 transform origin-top-right scale-100 opacity-100 z-50"
@@ -99,9 +99,13 @@ const BlogDetails = () => {
                   onClick={() => {
                     console.log("Edit button clicked");
                   }}
-                  className="cursor-pointer absolute right-0 mt-2 bg-gray-800 text-base-200 px-8 py-2 border rounded-md font-semibold transition-all duration-2000 transform origin-top-right scale-100 opacity-100 z-50"
+                  className="cursor-pointer absolute right-0 mt-2 bg-gray-800 text-base-200 px-8 py-2 border rounded-md font-semibold transition-all duration-2000 transform origin-top-right scale-100 opacity-100 z-50 whitespace-nowrap"
                 >
-                  Save
+                  {user ? (
+                    "you don't have permission to edit 😔"
+                  ) : (
+                    <Link to="/signin">Click to log in 👉</Link>
+                  )}
                 </button>
               )}
             </div>
