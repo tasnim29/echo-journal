@@ -7,7 +7,7 @@ const RecentBlogs = () => {
   //   console.log(blogs);
   return (
     <div className="my-20 max-w-7xl mx-auto">
-      <h1 className="text-center text-[#d72050] text-3xl font-bold mb-6">
+      <h1 className="text-center text-[#d72050] text-4xl font-bold mb-6">
         Recent blogs{" "}
       </h1>
 

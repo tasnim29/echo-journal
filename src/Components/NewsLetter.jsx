@@ -11,8 +11,8 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto my-20">
-      <h1 className="text-center text-[#d72050] text-3xl font-bold mb-6">
+    <div className="max-w-7xl mx-auto mb-12">
+      <h1 className="text-center text-[#d72050] text-4xl font-bold mb-6">
         Newsletter
       </h1>
       <div className="md:flex items-center  gap-6 justify-center">

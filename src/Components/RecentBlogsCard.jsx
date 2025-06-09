@@ -33,7 +33,7 @@ const RecentBlogsCard = ({ blog }) => {
   };
 
   return (
-    <div className="card bg-base-100  shadow-2xl hover:scale-105">
+    <div className="card bg-base-100  shadow-2xl hover:scale-105 lg:transition lg:duration-300">
       <figure className="px-10 pt-10">
         <img
           src={imageURL}
