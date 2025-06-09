@@ -1,24 +1,64 @@
-import React, { use } from "react";
-import { useLoaderData } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
-
-const comments = [
-  { user: "Alice", text: "Great blog!" },
-  { user: "Bob", text: "Very informative." },
-];
+import axios from "axios";
+import Swal from "sweetalert2";
+import { BsThreeDots } from "react-icons/bs";
 
 const BlogDetails = () => {
   const blog = useLoaderData();
-  //   console.log(blog);
+  const [editButton, setEditButton] = useState(false);
+  const [comments, setComments] = useState([]);
   const { user } = use(AuthContext);
-  const { _id, title, imageURL, name, short, long, address, category } = blog;
+  const { _id, title, imageURL, name, short, long, address, category, email } =
+    blog;
+
+  useEffect(() => {
+    axios(`http://localhost:3000/comments/${_id}`)
+      .then((data) => {
+        // console.log(data?.data);
+        setComments(data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [_id]);
+
+  // console.log(comments);
 
   const handleComment = (e) => {
     e.preventDefault();
+    if (user.email == email) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Can not comment on own blog",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
+    }
+    e.preventDefault();
     const commentText = e.target.comment.value;
+    const commenterInfo = {
+      blogId: _id,
+      comment: commentText,
+      userName: user.displayName,
+      userPhoto: user.photoURL,
+    };
+
+    // axios
+    axios
+      .post(`http://localhost:3000/comments/${_id}`, commenterInfo)
+      .then((result) => {
+        console.log(result.data);
+        setComments((prevComments) => [...prevComments, commenterInfo]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     e.target.reset();
   };
+
   return (
     <div className="rounded-md shadow-2xl max-w-2xl mx-auto my-20  ">
       <div className="flex items-center justify-between p-3">
@@ -35,17 +75,38 @@ const BlogDetails = () => {
             </span>
           </div>
         </div>
-        <button title="Open options" type="button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            className="w-5 h-5 fill-current"
+        {/* edit button */}
+        <div className="relative">
+          <button
+            onClick={() => setEditButton(!editButton)}
+            className="cursor-pointer"
+            title="Open options"
+            type="button"
           >
-            <path d="M256,144a64,64,0,1,0-64-64A64.072,64.072,0,0,0,256,144Zm0-96a32,32,0,1,1-32,32A32.036,32.036,0,0,1,256,48Z"></path>
-            <path d="M256,368a64,64,0,1,0,64,64A64.072,64.072,0,0,0,256,368Zm0,96a32,32,0,1,1,32-32A32.036,32.036,0,0,1,256,464Z"></path>
-            <path d="M256,192a64,64,0,1,0,64,64A64.072,64.072,0,0,0,256,192Zm0,96a32,32,0,1,1,32-32A32.036,32.036,0,0,1,256,288Z"></path>
-          </svg>
-        </button>
+            <BsThreeDots size={24} />
+          </button>
+          {editButton && (
+            <div>
+              {user.email === email ? (
+                <Link
+                  to={`/updateBlog/${_id}`}
+                  className="cursor-pointer absolute right-0 mt-2 bg-gray-800 text-base-200 px-8 py-2 border rounded-md font-semibold transition-all duration-2000 transform origin-top-right scale-100 opacity-100 z-50"
+                >
+                  Edit
+                </Link>
+              ) : (
+                <button
+                  onClick={() => {
+                    console.log("Edit button clicked");
+                  }}
+                  className="cursor-pointer absolute right-0 mt-2 bg-gray-800 text-base-200 px-8 py-2 border rounded-md font-semibold transition-all duration-2000 transform origin-top-right scale-100 opacity-100 z-50"
+                >
+                  Save
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="px-3 mb-2">
@@ -140,21 +201,26 @@ const BlogDetails = () => {
           </form>
         </div>
 
-        {/* ⬇️ INSERT COMMENTS LIST HERE */}
+        {/*  COMMENTS LIST  */}
         <div className="space-y-2 mt-5">
           <h3 className="text-sm font-semibold">Comments</h3>
-          {comments?.length > 0 ? (
-            comments.map((comment, idx) => (
-              <div key={idx} className="p-2  rounded bg-gray-100 text-sm">
-                <p className="font-medium">{comment.user}</p>
-                <p>{comment.text}</p>
+          {comments.map((comment, index) => (
+            <div key={index}>
+              <div className="flex gap-2 items-center mb-3">
+                <div className="avatar">
+                  <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring-2 ring-offset-2">
+                    <img src={comment.userPhoto} />
+                  </div>
+                </div>
+                <div>
+                  <p className="font-semibold">{comment.userName}</p>
+                </div>
+                <div className="p-2 rounded bg-gray-100 text-sm">
+                  <p>{comment.comment}</p>
+                </div>
               </div>
-            ))
-          ) : (
-            <p className="text-sm text-gray-500">
-              No comments yet. Be the first to comment!
-            </p>
-          )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
