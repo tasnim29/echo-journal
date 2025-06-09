@@ -45,6 +45,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allBlog",
+
         Component: AllBlog,
       },
       {
@@ -56,6 +57,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/featuredBlog",
+
         Component: FeaturedBlog,
       },
       {

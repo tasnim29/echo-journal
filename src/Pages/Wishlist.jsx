@@ -71,9 +71,6 @@ const Wishlist = () => {
                     onClick={header.column.getToggleSortingHandler()}
                     className="cursor-pointer border px-4 py-2 bg-gray-100"
                     title={header.column.getCanSort() ? "Click to sort" : ""}
-                    category={header.column.getCanSort() ? "Click to sort" : ""}
-                    name={header.column.getCanSort() ? "Click to sort" : ""}
-                    address={header.column.getCanSort() ? "Click to sort" : ""}
                   >
                     {flexRender(
                       header.column.columnDef.header,

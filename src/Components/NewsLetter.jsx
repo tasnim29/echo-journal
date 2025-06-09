@@ -11,7 +11,7 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mb-12">
+    <div className="max-w-7xl mx-auto ">
       <h1 className="text-center text-[#d72050] text-4xl font-bold mb-6">
         Newsletter
       </h1>
