@@ -2,21 +2,31 @@ import React, { useEffect, useState } from "react";
 
 import AllBlogsCard from "../Components/AllBlogsCard";
 import { FcSearch } from "react-icons/fc";
+import Loader from "../Components/Loader";
 
 const AllBlog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [search, setSearch] = useState("");
   console.log(search);
 
   useEffect(() => {
+    setLoading(true);
     const encodedCategory = encodeURIComponent(selectedCategory);
     fetch(
       `https://assignment-11-server-delta-nine.vercel.app/allBlogs?searchParams=${search}&category=${encodedCategory}`
     )
       .then((res) => res.json())
-      .then((data) => setBlogs(data));
+      .then((data) => {
+        setBlogs(data);
+        setLoading(false);
+      });
   }, [search, selectedCategory]);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <div className="my-20 max-w-7xl mx-auto">

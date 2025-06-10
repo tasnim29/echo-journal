@@ -9,15 +9,19 @@ import {
 } from "@tanstack/react-table";
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import axios from "axios";
+import Loader from "../Components/Loader";
 
 const FeaturedBlog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     axios("https://assignment-11-server-delta-nine.vercel.app/topBlogs")
       .then((data) => {
         console.log(data?.data);
         setBlogs(data?.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -59,6 +63,10 @@ const FeaturedBlog = () => {
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
   });
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <div>
       <div className="max-w-7xl mx-auto my-20">

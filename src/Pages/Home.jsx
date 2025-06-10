@@ -14,10 +14,10 @@ const Home = () => {
         <RecentBlogs></RecentBlogs>
       </div>
       <div>
-        <NewsLetter></NewsLetter>
+        <TipsSection></TipsSection>
       </div>
       <div>
-        <TipsSection></TipsSection>
+        <NewsLetter></NewsLetter>
       </div>
     </div>
   );

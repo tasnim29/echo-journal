@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
 const UseAxiosSecure = () => {
   const { user, signOutUser } = use(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log(user.accessToken);
   //   request interceptor
   axiosInstance.interceptors.request.use((config) => {
@@ -27,7 +27,7 @@ const UseAxiosSecure = () => {
         signOutUser()
           .then(() => {
             console.log("signout user for 401 response code");
-            navigate("/signin");
+            // navigate("/signin");
           })
           .catch((error) => {
             console.log(error);

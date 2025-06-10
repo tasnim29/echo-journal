@@ -10,17 +10,21 @@ import {
 } from "@tanstack/react-table";
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import UseAxiosSecure from "../AxiosHooks/UseAxiosSecure";
+import Loader from "../Components/Loader";
 
 const Wishlist = () => {
   const { user } = use(AuthContext);
   const [wishlist, setWishlist] = useState([]);
   const [sorting, setSorting] = useState([]);
+  const [loading, setLoading] = useState(true);
   const axiosSecure = UseAxiosSecure();
   useEffect(() => {
+    setLoading(true);
     axiosSecure(`/myWishlist/${user?.email}`)
       .then((data) => {
         console.log(data?.data);
         setWishlist(data?.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -56,6 +60,10 @@ const Wishlist = () => {
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
   });
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <div>
