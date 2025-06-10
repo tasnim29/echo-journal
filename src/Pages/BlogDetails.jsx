@@ -14,7 +14,7 @@ const BlogDetails = () => {
     blog;
 
   useEffect(() => {
-    axios(`http://localhost:3000/comments/${_id}`)
+    axios(`https://assignment-11-server-delta-nine.vercel.app/comments/${_id}`)
       .then((data) => {
         // console.log(data?.data);
         setComments(data?.data);
@@ -47,7 +47,10 @@ const BlogDetails = () => {
 
     // axios
     axios
-      .post(`http://localhost:3000/comments/${_id}`, commenterInfo)
+      .post(
+        `https://assignment-11-server-delta-nine.vercel.app/comments/${_id}`,
+        commenterInfo
+      )
       .then((result) => {
         console.log(result.data);
         setComments((prevComments) => [...prevComments, commenterInfo]);
@@ -60,7 +63,7 @@ const BlogDetails = () => {
   };
 
   return (
-    <div className="rounded-md shadow-2xl max-w-2xl mx-auto my-20  ">
+    <div className="rounded-md shadow-2xl max-w-2xl mx-auto my-20 px-5 ">
       <div className="flex items-center justify-between p-3">
         <div className="flex items-center space-x-2">
           <img
@@ -122,7 +125,7 @@ const BlogDetails = () => {
       <img
         src={imageURL}
         alt=""
-        className="w-full h-auto rounded-md object-contain"
+        className="w-full h-auto rounded-md object-contain "
       />
       <div className="p-3">
         <div className="flex items-center justify-between">

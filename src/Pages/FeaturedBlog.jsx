@@ -14,7 +14,7 @@ const FeaturedBlog = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:3000/topBlogs")
+    axios("https://assignment-11-server-delta-nine.vercel.app/topBlogs")
       .then((data) => {
         console.log(data?.data);
         setBlogs(data?.data);
@@ -62,9 +62,15 @@ const FeaturedBlog = () => {
   return (
     <div>
       <div className="max-w-7xl mx-auto my-20">
-        <h1 className="text-center text-[#d72050] text-3xl font-bold mb-6">
-          Featured Blogs
-        </h1>
+        <div className="mb-6">
+          <h1 className="text-center text-[#d72050] text-3xl font-bold ">
+            Featured Blogs
+          </h1>
+          <p className="text-center text-gray-400 font-semibold">
+            You can click on the column headers to sort in ascending or
+            descending order!!
+          </p>
+        </div>
         <table className="table-auto w-full border border-gray-300">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (

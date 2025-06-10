@@ -1,11 +1,12 @@
-import axios from "axios";
 import Lottie from "lottie-react";
 import React, { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import UseAxiosSecure from "../AxiosHooks/UseAxiosSecure";
 
 const AddBlog = () => {
   const { user } = use(AuthContext);
+  const axiosSecure = UseAxiosSecure();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,8 +15,8 @@ const AddBlog = () => {
     // console.log(newBlog);
 
     // axios
-    axios
-      .post("http://localhost:3000/blogs", newBlog)
+    axiosSecure
+      .post("/blogs", newBlog)
       .then((result) => {
         console.log(result.data);
         Swal.fire({

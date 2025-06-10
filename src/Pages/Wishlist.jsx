@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import axios from "axios";
+
 import {
   createColumnHelper,
   flexRender,
@@ -9,13 +9,15 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
+import UseAxiosSecure from "../AxiosHooks/UseAxiosSecure";
 
 const Wishlist = () => {
   const { user } = use(AuthContext);
   const [wishlist, setWishlist] = useState([]);
   const [sorting, setSorting] = useState([]);
+  const axiosSecure = UseAxiosSecure();
   useEffect(() => {
-    axios(`http://localhost:3000/myWishlist/${user?.email}`)
+    axiosSecure(`/myWishlist/${user?.email}`)
       .then((data) => {
         console.log(data?.data);
         setWishlist(data?.data);
@@ -23,7 +25,7 @@ const Wishlist = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [user]);
+  }, [user, axiosSecure]);
 
   const columnHelper = createColumnHelper();
 

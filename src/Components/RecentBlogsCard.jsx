@@ -18,7 +18,10 @@ const RecentBlogsCard = ({ blog }) => {
     };
 
     axios
-      .post(`http://localhost:3000/wishlist/${_id}`, wishlist)
+      .post(
+        `https://assignment-11-server-delta-nine.vercel.app/wishlist/${_id}`,
+        wishlist
+      )
       .then((result) => {
         console.log(result.data);
         Swal.fire({

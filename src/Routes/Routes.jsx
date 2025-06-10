@@ -21,7 +21,8 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loader></Loader>,
-        loader: () => fetch("http://localhost:3000/blogs"),
+        loader: () =>
+          fetch("https://assignment-11-server-delta-nine.vercel.app/blogs"),
         Component: Home,
       },
       {
@@ -36,7 +37,9 @@ export const router = createBrowserRouter([
         path: "/updateBlog/:id",
         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/blogs/${params.id}`),
+          fetch(
+            `https://assignment-11-server-delta-nine.vercel.app/blogs/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UpdateBlog></UpdateBlog>
@@ -52,7 +55,9 @@ export const router = createBrowserRouter([
         path: "/blogDetails/:id",
         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/blogs/${params.id}`),
+          fetch(
+            `https://assignment-11-server-delta-nine.vercel.app/blogs/${params.id}`
+          ),
         Component: BlogDetails,
       },
       {
