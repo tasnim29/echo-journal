@@ -72,17 +72,31 @@ const AddBlog = () => {
             />
           </div>
 
-          <div className="col-span-6">
-            <label htmlFor="address" className="text-sm text-[#374151]">
-              Author's Address
-            </label>
-            <input
-              id="address"
-              name="address"
-              type="text"
-              placeholder="Enter address"
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
-            />
+          <div className="col-span-6 flex flex-col sm:flex-row gap-6">
+            <div className="w-full sm:w-1/2">
+              <label htmlFor="address" className="text-sm text-[#374151]">
+                Author's Address
+              </label>
+              <input
+                id="address"
+                name="address"
+                type="text"
+                placeholder="Enter address"
+                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              />
+            </div>
+            <div className="w-full sm:w-1/2">
+              <label htmlFor="photoURL" className="text-sm text-[#374151]">
+                Photo of user
+              </label>
+              <input
+                id="photoURL"
+                name="photoURL"
+                type="text"
+                defaultValue={user.photoURL}
+                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              />
+            </div>
           </div>
 
           <div className="col-span-6 sm:col-span-2">
@@ -116,7 +130,7 @@ const AddBlog = () => {
             />
           </div>
 
-          <div className="col-span-6 sm:col-span-2">
+          {/* <div className="col-span-6 sm:col-span-2">
             <label htmlFor="email" className="text-sm text-[#374151]">
               Author Email
             </label>
@@ -127,7 +141,7 @@ const AddBlog = () => {
               defaultValue={user.email}
               className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
             />
-          </div>
+          </div> */}
 
           <div className="col-span-6">
             <label htmlFor="short" className="text-sm text-[#374151]">

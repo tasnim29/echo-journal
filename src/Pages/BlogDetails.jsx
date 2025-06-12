@@ -4,20 +4,34 @@ import { AuthContext } from "../Context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { BsThreeDots } from "react-icons/bs";
+import Loader from "../Components/Loader";
 
 const BlogDetails = () => {
   const blog = useLoaderData();
+  const [loading, setLoading] = useState(true);
   const [editButton, setEditButton] = useState(false);
   const [comments, setComments] = useState([]);
   const { user } = use(AuthContext);
-  const { _id, title, imageURL, name, short, long, address, category, email } =
-    blog;
+  const {
+    _id,
+    title,
+    imageURL,
+    name,
+    short,
+    long,
+    address,
+    category,
+    email,
+    photoURL,
+  } = blog;
 
   useEffect(() => {
-    axios(`https://assignment-11-server-delta-nine.vercel.app/comments/${_id}`)
+    setLoading(true);
+    axios(`http://localhost:3000/comments/${_id}`)
       .then((data) => {
         // console.log(data?.data);
         setComments(data?.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -47,10 +61,7 @@ const BlogDetails = () => {
 
     // axios
     axios
-      .post(
-        `https://assignment-11-server-delta-nine.vercel.app/comments/${_id}`,
-        commenterInfo
-      )
+      .post(`http://localhost:3000/comments/${_id}`, commenterInfo)
       .then((result) => {
         console.log(result.data);
         setComments((prevComments) => [...prevComments, commenterInfo]);
@@ -62,12 +73,16 @@ const BlogDetails = () => {
     e.target.reset();
   };
 
+  if (loading) {
+    return <Loader></Loader>;
+  }
+
   return (
     <div className="rounded-md shadow-2xl max-w-2xl mx-auto my-20 px-5 ">
       <div className="flex items-center justify-between p-3">
         <div className="flex items-center space-x-2">
           <img
-            src="https://i.ibb.co/FkbK7GZD/messi.jpg"
+            src={photoURL}
             alt=""
             className="object-cover object-center w-8 h-8 rounded-full shadow-sm  "
           />

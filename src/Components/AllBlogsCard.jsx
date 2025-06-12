@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const AllBlogsCard = ({ blog }) => {
   const { user } = use(AuthContext);
-  const { _id, title, imageURL, short, category } = blog;
+  const { _id, title, imageURL, short, category, name } = blog;
   const handleWishlist = () => {
     const wishlist = {
       blogId: _id,
@@ -14,10 +14,7 @@ const AllBlogsCard = ({ blog }) => {
     };
 
     axios
-      .post(
-        `https://assignment-11-server-delta-nine.vercel.app/wishlist/${_id}`,
-        wishlist
-      )
+      .post(`http://localhost:3000/wishlist/${_id}`, wishlist)
       .then((result) => {
         console.log(result.data);
         Swal.fire({
@@ -41,6 +38,7 @@ const AllBlogsCard = ({ blog }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
+        <p className="text-sm text-gray-500">by {name}</p>
         <div className="badge badge-secondary">{category}</div>
         <p>{short}</p>
         <div className="card-actions justify-end">

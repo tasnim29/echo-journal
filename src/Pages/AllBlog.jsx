@@ -15,7 +15,7 @@ const AllBlog = () => {
     setLoading(true);
     const encodedCategory = encodeURIComponent(selectedCategory);
     fetch(
-      `https://assignment-11-server-delta-nine.vercel.app/allBlogs?searchParams=${search}&category=${encodedCategory}`
+      `http://localhost:3000/allBlogs?searchParams=${search}&category=${encodedCategory}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -39,6 +39,7 @@ const AllBlog = () => {
           <FcSearch size={20} className="text-gray-500" />
           <input
             className="w-full bg-transparent focus:outline-none text-sm "
+            value={search}
             onChange={(e) => setSearch(e.target.value)}
             type="search"
             name="search"
@@ -47,6 +48,7 @@ const AllBlog = () => {
         </div>
         {/* dropdown menu */}
         <select
+          value={selectedCategory}
           defaultValue={""}
           onChange={(e) => setSelectedCategory(e.target.value)}
           name="category"
