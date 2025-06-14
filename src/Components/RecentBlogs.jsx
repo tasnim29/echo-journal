@@ -7,14 +7,11 @@ const RecentBlogs = () => {
   //   console.log(blogs);
   return (
     <div className="my-20 max-w-7xl mx-auto">
-      <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold text-[#d72050] sm:text-4xl md:mx-auto ">
-          <span className="relative inline-block">
-            <span className="relative">The</span>
-          </span>{" "}
+      <div className="mb-8 w-8/12 mx-auto">
+        <h2 className="text-2xl font-bold text-[#d72050] sm:text-4xl text-center ">
           Recent Blogs
         </h2>
-        <p className="text-base text-gray-700 md:text-lg">
+        <p className="text-base text-gray-700 md:text-lg text-center ">
           There are six recent blogs
         </p>
       </div>

@@ -42,7 +42,7 @@ const RecentBlogsCard = ({ blog, index }) => {
   return (
     <div
       className="card bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg hover:scale-105 transition duration-300 rounded-lg"
-      data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+      data-aos="fade-up"
       data-aos-delay={index * 100}
       data-aos-duration="800"
       data-aos-easing="ease-out-cubic"

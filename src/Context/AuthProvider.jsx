@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
       unSubscribe();
     };
   }, []);
-  console.log("my name is", user);
+  // console.log("my name is", user);
   return (
     <div>
       <AuthContext value={userInfo}>{children}</AuthContext>
