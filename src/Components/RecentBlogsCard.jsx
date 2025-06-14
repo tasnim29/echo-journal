@@ -3,6 +3,9 @@ import React, { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
+// react-photo-view
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const RecentBlogsCard = ({ blog, index }) => {
   //   console.log(blog);
@@ -47,13 +50,18 @@ const RecentBlogsCard = ({ blog, index }) => {
       data-aos-duration="800"
       data-aos-easing="ease-out-cubic"
     >
-      <figure className="px-10 pt-10">
-        <img
-          src={imageURL}
-          alt={title}
-          className="rounded-xl w-full h-48 object-cover"
-        />
-      </figure>
+      <PhotoProvider>
+        <figure className="px-10 pt-10">
+          <PhotoView src={imageURL}>
+            <img
+              src={imageURL}
+              alt={title}
+              className="rounded-xl w-full h-48 object-cover cursor-zoom-in"
+            />
+          </PhotoView>
+        </figure>
+      </PhotoProvider>
+
       <div className="card-body items-center text-center">
         <h2 className="card-title text-gray-700 text-xl font-bold">{title}</h2>
         <h3 className="font-semibold text-[#a3163a]">Author Name : {name}</h3>

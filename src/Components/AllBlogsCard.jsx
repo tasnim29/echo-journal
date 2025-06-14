@@ -3,6 +3,9 @@ import React, { use } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthContext";
 import { Link } from "react-router";
+// react-photo-view
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const AllBlogsCard = ({ blog }) => {
   const { user } = use(AuthContext);
@@ -29,13 +32,18 @@ const AllBlogsCard = ({ blog }) => {
   };
   return (
     <div className="card bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg">
-      <figure className="px-10 pt-10">
-        <img
-          src={imageURL}
-          alt={title}
-          className="rounded-xl w-full h-48 object-cover"
-        />
-      </figure>
+      <PhotoProvider>
+        <figure className="px-10 pt-10">
+          <PhotoView src={imageURL}>
+            <img
+              src={imageURL}
+              alt={title}
+              className="rounded-xl w-full h-48 object-cover cursor-zoom-in"
+            />
+          </PhotoView>
+        </figure>
+      </PhotoProvider>
+
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p className="text-sm text-gray-500">by {name}</p>

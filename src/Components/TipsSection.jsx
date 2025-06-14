@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import blog1 from "../assets/blog1.jpg";
+// react-photo-view
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const TipsSection = () => {
   return (
@@ -84,22 +87,25 @@ const TipsSection = () => {
             </p>
           </div>
         </motion.div>
-        {/* image */}
-        <div className="relative md:col-span-2 lg:col-span-2">
-          <motion.img
-            initial={{ x: 300, rotate: 180 }}
-            animate={{ x: 0, rotate: 0 }}
-            transition={{
-              duration: 2.5,
-              type: "spring",
-              bounce: 0.3,
-              repeat: 1,
-            }}
-            className="inset-0 object-cover object-bottom w-full h-56 rounded shadow-lg lg:absolute lg:h-full"
-            src={blog1}
-            alt=""
-          />
-        </div>
+        <PhotoProvider>
+          <div className="relative md:col-span-2 lg:col-span-2">
+            <PhotoView src={blog1}>
+              <motion.img
+                initial={{ x: 300, rotate: 180 }}
+                animate={{ x: 0, rotate: 0 }}
+                transition={{
+                  duration: 2.5,
+                  type: "spring",
+                  bounce: 0.3,
+                  repeat: 1,
+                }}
+                className="inset-0 object-cover object-bottom w-full h-56 rounded shadow-lg lg:absolute lg:h-full cursor-zoom-in"
+                src={blog1}
+                alt=""
+              />
+            </PhotoView>
+          </div>
+        </PhotoProvider>
       </div>
     </div>
   );

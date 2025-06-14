@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "../assets/navLogo.jpg";
+import { FaSquareInstagram, FaSquareXTwitter } from "react-icons/fa6";
+import { FaFacebookSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -78,23 +80,16 @@ const Footer = () => {
           <p>© 2025 EchoJournal. All rights reserved.</p>
           <div className="flex space-x-5">
             {/* Twitter */}
-            <a href="/" className="hover:text-white">
-              <svg className="h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8...z" />
-              </svg>
+            <a href="https://www.x.com/" className="hover:text-white">
+              <FaSquareXTwitter size={24} />
             </a>
             {/* Instagram */}
-            <a href="/" className="hover:text-white">
-              <svg className="h-5" fill="currentColor" viewBox="0 0 30 30">
-                <circle cx="15" cy="15" r="4" />
-                <path d="M19.999,3h-10C6.14,3,...z" />
-              </svg>
+            <a href="https://www.instagram.com/" className="hover:text-white">
+              <FaSquareInstagram size={24} />
             </a>
             {/* Facebook */}
-            <a href="/" className="hover:text-white">
-              <svg className="h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22,0H2C0.895,0,...z" />
-              </svg>
+            <a href="https://www.facebook.com/" className="hover:text-white">
+              <FaFacebookSquare size={24} />
             </a>
           </div>
         </div>
