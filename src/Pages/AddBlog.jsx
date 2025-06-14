@@ -31,23 +31,26 @@ const AddBlog = () => {
       });
   };
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-[#ffffff] border border-[#f3f4f6]">
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-[#d72050] mb-2">
+    <div className="w-full max-w-5xl mx-auto px-6 py-8 sm:px-10 sm:py-12 shadow-2xl rounded-lg my-12 bg-white border border-[#f3f4f6]">
+      <div className="mb-10 text-center">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#d72050]  mb-3">
           Add Your Blog
         </h1>
-        <p className="text-sm sm:text-base text-[#374151]">
+        <p className="text-base sm:text-lg text-[#374151]">
           Fill in the form below to publish your blog!
         </p>
       </div>
 
       <form
         onSubmit={handleSubmit}
-        className="container flex flex-col mx-auto space-y-12"
+        className="container flex flex-col mx-auto space-y-14"
       >
-        <fieldset className="grid grid-cols-6 gap-6 p-6 rounded-md bg-[#f9fafb]">
+        <fieldset className="grid grid-cols-6 gap-7 p-8 rounded-xl  shadow-lg bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500">
           <div className="col-span-6 sm:col-span-3">
-            <label htmlFor="title" className="text-sm text-[#374151]">
+            <label
+              htmlFor="title"
+              className="text-base font-semibold text-[#d72050]"
+            >
               Title
             </label>
             <input
@@ -55,12 +58,15 @@ const AddBlog = () => {
               name="title"
               type="text"
               placeholder="Please enter your blog title"
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
             />
           </div>
 
           <div className="col-span-6 sm:col-span-3">
-            <label htmlFor="imageURL" className="text-sm text-[#374151]">
+            <label
+              htmlFor="imageURL"
+              className="text-base font-semibold text-[#d72050]"
+            >
               Image of your blog
             </label>
             <input
@@ -68,13 +74,16 @@ const AddBlog = () => {
               name="imageURL"
               type="text"
               placeholder="Enter image URL"
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
             />
           </div>
 
-          <div className="col-span-6 flex flex-col sm:flex-row gap-6">
+          <div className="col-span-6 flex flex-col sm:flex-row gap-8">
             <div className="w-full sm:w-1/2">
-              <label htmlFor="address" className="text-sm text-[#374151]">
+              <label
+                htmlFor="address"
+                className="text-base font-semibold text-[#d72050]"
+              >
                 Author's Address
               </label>
               <input
@@ -82,11 +91,14 @@ const AddBlog = () => {
                 name="address"
                 type="text"
                 placeholder="Enter address"
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
               />
             </div>
             <div className="w-full sm:w-1/2">
-              <label htmlFor="photoURL" className="text-sm text-[#374151]">
+              <label
+                htmlFor="photoURL"
+                className="text-base font-semibold text-[#d72050]"
+              >
                 Photo of user
               </label>
               <input
@@ -94,20 +106,23 @@ const AddBlog = () => {
                 name="photoURL"
                 type="text"
                 defaultValue={user.photoURL}
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
               />
             </div>
           </div>
 
           <div className="col-span-6 sm:col-span-2">
-            <label htmlFor="category" className="text-sm text-[#374151]">
+            <label
+              htmlFor="category"
+              className="text-base font-semibold text-[#d72050]"
+            >
               Category
             </label>
             <select
               id="category"
               name="category"
               defaultValue="Pick a category"
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
             >
               <option disabled>Pick a category</option>
               <option>Technology</option>
@@ -118,7 +133,10 @@ const AddBlog = () => {
           </div>
 
           <div className="col-span-6 sm:col-span-2">
-            <label htmlFor="name" className="text-sm text-[#374151]">
+            <label
+              htmlFor="name"
+              className="text-base font-semibold text-[#d72050]"
+            >
               Author Name
             </label>
             <input
@@ -126,37 +144,30 @@ const AddBlog = () => {
               name="name"
               type="text"
               placeholder="Your name"
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
             />
           </div>
 
-          {/* <div className="col-span-6 sm:col-span-2">
-            <label htmlFor="email" className="text-sm text-[#374151]">
-              Author Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              defaultValue={user.email}
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
-            />
-          </div> */}
-
           <div className="col-span-6">
-            <label htmlFor="short" className="text-sm text-[#374151]">
+            <label
+              htmlFor="short"
+              className="text-base font-semibold text-[#d72050]"
+            >
               Short Description
             </label>
             <textarea
               id="short"
               name="short"
               placeholder="Shortly write about your blog"
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
             ></textarea>
           </div>
 
           <div className="col-span-6">
-            <label htmlFor="long" className="text-sm text-[#374151]">
+            <label
+              htmlFor="long"
+              className="text-base font-semibold text-[#d72050]"
+            >
               Long Description
             </label>
             <textarea
@@ -164,13 +175,13 @@ const AddBlog = () => {
               name="long"
               rows="6"
               placeholder="Write your blog briefly"
-              className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+              className="w-full mt-2 px-4 py-4 border border-gray-300 rounded-lg bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
             ></textarea>
           </div>
 
           <div className="col-span-6">
             <button
-              className="bg-[#d72050] btn w-full text-white font-semibold py-2 rounded-md hover:bg-[#bb1c45] transition duration-200"
+              className="bg-gradient-to-r from-[#d72050] via-[#a3163a] to-[#f03c6b] btn w-full text-white font-extrabold py-3 rounded-lg hover:from-[#bb1c45] hover:via-[#911731] hover:to-[#d9335d] transition duration-300 shadow-lg"
               type="submit"
             >
               Submit

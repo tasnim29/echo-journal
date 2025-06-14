@@ -57,12 +57,14 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+
       setLoading(false);
     });
     return () => {
       unSubscribe();
     };
   }, []);
+  console.log("my name is", user);
   return (
     <div>
       <AuthContext value={userInfo}>{children}</AuthContext>

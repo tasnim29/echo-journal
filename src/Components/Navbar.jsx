@@ -5,12 +5,13 @@ import logo from "../assets/navLogo.jpg";
 import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
-  const { user, signOutUser } = use(AuthContext);
+  const { user, signOutUser, setUser } = use(AuthContext);
 
   const handleSignout = () => {
     signOutUser()
       .then(() => {
         console.log("User signed out successfully.");
+        setUser(null);
       })
       .catch((err) => {
         console.error("Sign-out error:", err);
@@ -73,7 +74,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-300">
+    <div className="navbar bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500">
       {/* Navbar Start */}
       <div className="navbar-start">
         <div className="dropdown">

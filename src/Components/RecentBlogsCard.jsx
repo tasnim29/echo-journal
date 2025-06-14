@@ -4,7 +4,7 @@ import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
 
-const RecentBlogsCard = ({ blog }) => {
+const RecentBlogsCard = ({ blog, index }) => {
   //   console.log(blog);
   const { user } = use(AuthContext);
 
@@ -40,7 +40,13 @@ const RecentBlogsCard = ({ blog }) => {
   };
 
   return (
-    <div className="card bg-base-100  shadow-2xl hover:scale-105 lg:transition lg:duration-300">
+    <div
+      className="card bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg hover:scale-105 transition duration-300 rounded-lg"
+      data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+      data-aos-delay={index * 100}
+      data-aos-duration="800"
+      data-aos-easing="ease-out-cubic"
+    >
       <figure className="px-10 pt-10">
         <img
           src={imageURL}
@@ -49,19 +55,19 @@ const RecentBlogsCard = ({ blog }) => {
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{title}</h2>
-        <h3>Author Name : {name}</h3>
-        <p>{short}</p>
-        <div className="card-actions">
+        <h2 className="card-title text-gray-700 text-xl font-bold">{title}</h2>
+        <h3 className="font-semibold text-[#a3163a]">Author Name : {name}</h3>
+        <p className="text-gray-700">{short}</p>
+        <div className="card-actions space-x-3">
           <Link
             to={`/blogDetails/${_id}`}
-            className="btn btn-sm btn-outline bg-[#d72050] text-[#ffffff]"
+            className="btn btn-sm bg-[#d72050] hover:bg-[#a3163a] text-white"
           >
-            Details{" "}
+            Details
           </Link>
           <button
             onClick={handleWishlist}
-            className="btn btn-sm btn-outline bg-[#d72050] text-[#ffffff]"
+            className="btn btn-sm bg-[#d72050] hover:bg-[#a3163a] text-white"
           >
             Wishlist
           </button>

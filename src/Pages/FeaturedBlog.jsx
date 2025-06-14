@@ -69,9 +69,9 @@ const FeaturedBlog = () => {
   }
   return (
     <div>
-      <div className="max-w-7xl mx-auto my-20">
+      <div className="max-w-7xl mx-auto my-20 px-4">
         <div className="mb-6">
-          <h1 className="text-center text-[#d72050] text-3xl font-bold ">
+          <h1 className="text-center text-[#d72050] text-3xl font-bold">
             Featured Blogs
           </h1>
           <p className="text-center text-gray-400 font-semibold">
@@ -79,42 +79,54 @@ const FeaturedBlog = () => {
             descending order!!
           </p>
         </div>
-        <table className="table-auto w-full border border-gray-300">
-          <thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th
-                    key={header.id}
-                    onClick={header.column.getToggleSortingHandler()}
-                    className="cursor-pointer border px-4 py-2 bg-gray-100"
-                    title={header.column.getCanSort() ? "Click to sort" : ""}
-                  >
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                    {{
-                      asc: <FaArrowCircleUp />,
-                      desc: <FaArrowCircleDown />,
-                    }[header.column.getIsSorted()] ?? ""}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="border px-4 py-2">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+        {/* Responsive table wrapper */}
+        <div className="overflow-x-auto">
+          <table className="min-w-full table-auto border border-gray-300 text-sm">
+            <thead>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <tr key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <th
+                      key={header.id}
+                      onClick={header.column.getToggleSortingHandler()}
+                      className="cursor-pointer border px-4 py-2 bg-gray-100 whitespace-nowrap"
+                      title={header.column.getCanSort() ? "Click to sort" : ""}
+                    >
+                      <div className="flex items-center gap-1">
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                        {{
+                          asc: <FaArrowCircleUp />,
+                          desc: <FaArrowCircleDown />,
+                        }[header.column.getIsSorted()] ?? ""}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.map((row) => (
+                <tr key={row.id} className="hover:bg-gray-50">
+                  {row.getVisibleCells().map((cell) => (
+                    <td
+                      key={cell.id}
+                      className="border px-4 py-2 whitespace-nowrap truncate max-w-xs"
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

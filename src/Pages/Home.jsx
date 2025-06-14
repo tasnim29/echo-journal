@@ -23,9 +23,9 @@ const Home = () => {
       <div>
         <TipsSection></TipsSection>
       </div>
-      <div>
+      {/* <div>
         <AuthorSpotlight></AuthorSpotlight>
-      </div>
+      </div> */}
       <div>
         <NewsLetter></NewsLetter>
       </div>

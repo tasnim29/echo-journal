@@ -61,7 +61,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="w-full  max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-[#ffffff] border border-[#f3f4f6]">
+    <div className="w-full  max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500  ">
       <div className="mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-[#d72050] mb-2">
           Log In

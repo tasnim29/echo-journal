@@ -1,15 +1,34 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 import blog1 from "../assets/blog1.jpg";
 
 const TipsSection = () => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <h1 className="text-center text-[#d72050] text-4xl font-bold mb-12">
-        Tips for Writing Engaging Blog Posts
-      </h1>
+      <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold text-[#d72050] sm:text-4xl md:mx-auto ">
+          <span className="relative inline-block">
+            <span className="relative">The</span>
+          </span>{" "}
+          Tips for writing engaging blogs
+        </h2>
+        <p className="text-base text-gray-700 md:text-lg">
+          these proven tips will help you create content that informs,
+          entertains, and keeps readers coming back for more.
+        </p>
+      </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-        <div className="grid gap-6 md:grid-cols-2 md:col-span-2 lg:col-span-3">
+        <motion.div
+          initial={{ x: 300, rotate: 180 }}
+          animate={{ x: 0, rotate: 0 }}
+          transition={{
+            duration: 2.5,
+            type: "spring",
+            bounce: 0.3,
+            repeat: 1,
+          }}
+          className="grid gap-6 md:grid-cols-2 md:col-span-2 lg:col-span-3"
+        >
           <div className="rounded lg:p-5 lg:transition lg:duration-300 lg:hover:bg-indigo-100 hover:scale-105 cursor-pointer shadow-2xl">
             <div className="flex items-center mb-1">
               <span className="flex items-center justify-center w-4 h-4 mr-2 text-xs font-medium text-white rounded bg-secondary">
@@ -66,10 +85,18 @@ const TipsSection = () => {
               will make your content more relatable.
             </p>
           </div>
-        </div>
+        </motion.div>
         {/* image */}
         <div className="relative md:col-span-2 lg:col-span-2">
-          <img
+          <motion.img
+            initial={{ x: 300, rotate: 180 }}
+            animate={{ x: 0, rotate: 0 }}
+            transition={{
+              duration: 2.5,
+              type: "spring",
+              bounce: 0.3,
+              repeat: 1,
+            }}
             className="inset-0 object-cover object-bottom w-full h-56 rounded shadow-lg lg:absolute lg:h-full"
             src={blog1}
             alt=""

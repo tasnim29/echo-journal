@@ -28,7 +28,7 @@ const AllBlogsCard = ({ blog }) => {
       });
   };
   return (
-    <div className="card bg-base-100 shadow-2xl">
+    <div className="card bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg">
       <figure className="px-10 pt-10">
         <img
           src={imageURL}
