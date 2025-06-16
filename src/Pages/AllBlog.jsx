@@ -17,7 +17,7 @@ const AllBlog = () => {
     setLoading(true);
     const encodedCategory = encodeURIComponent(selectedCategory);
     fetch(
-      `http://localhost:3000/allBlogs?searchParams=${search}&category=${encodedCategory}`
+      `https://assignment-11-server-delta-nine.vercel.app/allBlogs?searchParams=${search}&category=${encodedCategory}`
     )
       .then((res) => res.json())
       .then((data) => {

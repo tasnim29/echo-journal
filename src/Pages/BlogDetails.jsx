@@ -27,7 +27,7 @@ const BlogDetails = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios(`http://localhost:3000/comments/${_id}`)
+    axios(`https://assignment-11-server-delta-nine.vercel.app/comments/${_id}`)
       .then((data) => {
         // console.log(data?.data);
         setComments(data?.data);
@@ -61,7 +61,10 @@ const BlogDetails = () => {
 
     // axios
     axios
-      .post(`http://localhost:3000/comments/${_id}`, commenterInfo)
+      .post(
+        `https://assignment-11-server-delta-nine.vercel.app/comments/${_id}`,
+        commenterInfo
+      )
       .then((result) => {
         console.log(result.data);
         setComments((prevComments) => [...prevComments, commenterInfo]);

@@ -19,7 +19,7 @@ const FeaturedBlog = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios("http://localhost:3000/topBlogs")
+    axios("https://assignment-11-server-delta-nine.vercel.app/topBlogs")
       .then((data) => {
         console.log(data?.data);
         setBlogs(data?.data);

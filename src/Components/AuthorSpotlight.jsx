@@ -6,7 +6,7 @@ const AuthorSpotlight = () => {
   const { theme } = use(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:3000/allBlogs")
+    fetch("https://assignment-11-server-delta-nine.vercel.app/allBlogs")
       .then((res) => res.json())
       .then((data) => {
         const uniqueAuthors = [];

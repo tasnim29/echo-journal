@@ -22,7 +22,10 @@ const UpdateBlog = () => {
 
     // axios
     axiosSecure
-      .put(`http://localhost:3000/blogs/${_id}`, updatedBlog)
+      .put(
+        `https://assignment-11-server-delta-nine.vercel.app/blogs/${_id}`,
+        updatedBlog
+      )
       .then((res) => {
         console.log(res.data);
         Swal.fire({
