@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 const AuthorSpotlight = () => {
   const [authors, setAuthors] = useState([]);
+  const { theme } = use(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:3000/allBlogs")
@@ -30,10 +32,14 @@ const AuthorSpotlight = () => {
   return (
     <div className="max-w-7xl mx-auto my-20">
       <div className="mb-8 w-8/12 mx-auto">
-        <h2 className="text-2xl font-bold text-[#d72050] sm:text-4xl text-center ">
+        <h2 className="text-2xl font-bold text-[#d72050] sm:text-6xl text-center ">
           Author Spotlight
         </h2>
-        <p className="text-base text-gray-700 md:text-lg text-center">
+        <p
+          className={`text-base  md:text-lg text-center ${
+            theme === "dark" ? "text-base-200" : "text-gray-500"
+          }`}
+        >
           Get to know the minds behind the blogs! Meet our featured authors,
           explore their journeys, and dive into their latest writings.
         </p>
@@ -43,7 +49,9 @@ const AuthorSpotlight = () => {
         {authors?.map((author, index) => (
           <div
             key={index}
-            className="text-center rounded-xl shadow-lg p-6 lg:transition lg:duration-300 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 hover:scale-105 cursor-pointer"
+            className={`text-center rounded-xl shadow-lg p-6 lg:transition lg:duration-300 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 hover:scale-105 cursor-pointer ${
+              theme === "dark" ? "border-4 border-yellow-500" : ""
+            }`}
             data-aos="fade-up"
             data-aos-delay={index * 100}
             data-aos-duration="800"

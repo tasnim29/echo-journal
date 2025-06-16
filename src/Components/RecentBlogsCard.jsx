@@ -9,7 +9,7 @@ import "react-photo-view/dist/react-photo-view.css";
 
 const RecentBlogsCard = ({ blog, index }) => {
   //   console.log(blog);
-  const { user } = use(AuthContext);
+  const { user, theme } = use(AuthContext);
 
   const { _id, title, imageURL, name, short } = blog;
 
@@ -44,7 +44,9 @@ const RecentBlogsCard = ({ blog, index }) => {
 
   return (
     <div
-      className="card bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg hover:scale-105 transition duration-300 rounded-lg"
+      className={`card lg:transition lg:duration-300 hover:scale-105 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg  rounded-lg ${
+        theme === "dark" ? "border-4 border-yellow-500" : ""
+      }`}
       data-aos="fade-up"
       data-aos-delay={index * 100}
       data-aos-duration="800"

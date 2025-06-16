@@ -11,7 +11,7 @@ const BlogDetails = () => {
   const [loading, setLoading] = useState(true);
   const [editButton, setEditButton] = useState(false);
   const [comments, setComments] = useState([]);
-  const { user } = use(AuthContext);
+  const { user, theme } = use(AuthContext);
   const {
     _id,
     title,
@@ -78,7 +78,11 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="rounded-md shadow-2xl max-w-2xl mx-auto my-20 px-5 ">
+    <div
+      className={`rounded-md shadow-2xl max-w-2xl mx-auto my-20 px-5 ${
+        theme === "dark" ? "border-4 border-yellow-500" : ""
+      }`}
+    >
       <div className="flex items-center justify-between p-3">
         <div className="flex items-center space-x-2">
           <img
@@ -238,7 +242,7 @@ const BlogDetails = () => {
                   <p className="font-semibold">{comment.userName}</p>
                 </div>
                 <div className="p-2 rounded bg-gray-100 text-sm">
-                  <p>{comment.comment}</p>
+                  <p className="text-gray-700 ">{comment.comment}</p>
                 </div>
               </div>
             </div>

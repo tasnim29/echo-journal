@@ -9,7 +9,7 @@ import Lottie from "lottie-react";
 
 const SignUp = () => {
   const navigation = useNavigate();
-  const { createUser, googleLogin, setUser, updateUserProfile } =
+  const { createUser, googleLogin, setUser, updateUserProfile, theme } =
     use(AuthContext);
   // passwordShow toggle state
   const [showPassword, setShowPassword] = useState(false);
@@ -77,7 +77,11 @@ const SignUp = () => {
       });
   };
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500">
+    <div
+      className={`w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 ${
+        theme === "dark" ? "border-4 border-yellow-500" : ""
+      }`}
+    >
       <div className="mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-[#d72050] mb-2">
           Register
@@ -104,7 +108,11 @@ const SignUp = () => {
                 name="name"
                 id="name"
                 placeholder="Enter your full name"
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className={`w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
             </div>
 
@@ -121,7 +129,11 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="leroy@jenkins.com"
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className={`w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
             </div>
 
@@ -138,7 +150,11 @@ const SignUp = () => {
                 name="photo"
                 id="photo"
                 placeholder="Enter the URL of your image"
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className={`w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
             </div>
 
@@ -155,7 +171,11 @@ const SignUp = () => {
                 name="password"
                 id="password"
                 placeholder="*****"
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className={`w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}

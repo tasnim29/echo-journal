@@ -8,7 +8,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
 const AllBlogsCard = ({ blog }) => {
-  const { user } = use(AuthContext);
+  const { user, theme } = use(AuthContext);
   const { _id, title, imageURL, short, category, name } = blog;
   const handleWishlist = () => {
     const wishlist = {
@@ -31,7 +31,11 @@ const AllBlogsCard = ({ blog }) => {
       });
   };
   return (
-    <div className="card bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg">
+    <div
+      className={`card bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 shadow-lg ${
+        theme === "dark" ? "border-4 border-yellow-500" : ""
+      }`}
+    >
       <PhotoProvider>
         <figure className="px-10 pt-10">
           <PhotoView src={imageURL}>
@@ -45,10 +49,10 @@ const AllBlogsCard = ({ blog }) => {
       </PhotoProvider>
 
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <p className="text-sm text-gray-500">by {name}</p>
+        <h2 className="card-title text-gray-700 text-xl font-bold">{title}</h2>
+        <p className="text-sm font-semibold text-[#a3163a]">by {name}</p>
         <div className="badge badge-secondary">{category}</div>
-        <p>{short}</p>
+        <p className="text-gray-700">{short}</p>
         <div className="card-actions justify-end">
           <Link
             to={`/blogDetails/${_id}`}

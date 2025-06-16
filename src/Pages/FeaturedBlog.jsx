@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 import {
   createColumnHelper,
@@ -10,8 +10,10 @@ import {
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import axios from "axios";
 import Loader from "../Components/Loader";
+import { AuthContext } from "../Context/AuthContext";
 
 const FeaturedBlog = () => {
+  const { theme } = use(AuthContext);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -71,7 +73,11 @@ const FeaturedBlog = () => {
     <div>
       <div className="max-w-7xl mx-auto my-20 px-4">
         <div className="mb-6">
-          <h1 className="text-center text-[#d72050] text-3xl font-bold">
+          <h1
+            className={`text-2xl md:text-5xl font-bold text-center mb-3 ${
+              theme === "dark" ? "text-yellow-500" : "text-[#d72050]"
+            }`}
+          >
             Featured Blogs
           </h1>
           <p className="text-center text-gray-400 font-semibold">
@@ -82,7 +88,13 @@ const FeaturedBlog = () => {
 
         {/* Responsive table wrapper */}
         <div className="overflow-x-auto">
-          <table className="min-w-full table-auto border border-gray-300 text-sm">
+          <table
+            className={`min-w-full table-auto text-sm border ${
+              theme === "dark"
+                ? "border-gray-700 bg-gray-900 text-gray-100"
+                : "border-gray-300 bg-white text-gray-900"
+            }`}
+          >
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
@@ -90,7 +102,11 @@ const FeaturedBlog = () => {
                     <th
                       key={header.id}
                       onClick={header.column.getToggleSortingHandler()}
-                      className="cursor-pointer border px-4 py-2 bg-gray-100 whitespace-nowrap"
+                      className={`cursor-pointer border px-4 py-2 whitespace-nowrap ${
+                        theme === "dark"
+                          ? "bg-gray-800 border-gray-700"
+                          : "bg-gray-100 border-gray-300"
+                      }`}
                       title={header.column.getCanSort() ? "Click to sort" : ""}
                     >
                       <div className="flex items-center gap-1">
@@ -110,11 +126,18 @@ const FeaturedBlog = () => {
             </thead>
             <tbody>
               {table.getRowModel().rows.map((row) => (
-                <tr key={row.id} className="hover:bg-gray-50">
+                <tr
+                  key={row.id}
+                  className={`${
+                    theme === "dark" ? "hover:bg-gray-800" : "hover:bg-gray-50"
+                  }`}
+                >
                   {row.getVisibleCells().map((cell) => (
                     <td
                       key={cell.id}
-                      className="border px-4 py-2 whitespace-nowrap truncate max-w-xs"
+                      className={`border px-4 py-2 whitespace-nowrap truncate max-w-xs ${
+                        theme === "dark" ? "border-gray-700" : "border-gray-300"
+                      }`}
                     >
                       {flexRender(
                         cell.column.columnDef.cell,

@@ -13,7 +13,7 @@ import UseAxiosSecure from "../AxiosHooks/UseAxiosSecure";
 import Loader from "../Components/Loader";
 
 const Wishlist = () => {
-  const { user } = use(AuthContext);
+  const { user, theme } = use(AuthContext);
   const [wishlist, setWishlist] = useState([]);
   const [sorting, setSorting] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -67,13 +67,23 @@ const Wishlist = () => {
 
   return (
     <div className="max-w-7xl mx-auto my-20 px-4">
-      <h1 className="text-center text-[#d72050] text-3xl font-bold mb-6">
-        My WishListed Blogs
+      <h1
+        className={`text-2xl md:text-5xl font-bold text-center mb-3 ${
+          theme === "dark" ? "text-yellow-500" : "text-[#d72050]"
+        }`}
+      >
+        Featured Blogs
       </h1>
 
       {/* Scrollable wrapper for responsiveness */}
       <div className="overflow-x-auto">
-        <table className="min-w-full table-auto border border-gray-300 text-sm mb-20">
+        <table
+          className={`min-w-full table-auto text-sm border ${
+            theme === "dark"
+              ? "border-gray-700 bg-gray-900 text-gray-100"
+              : "border-gray-300 bg-white text-gray-900"
+          }`}
+        >
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
@@ -81,7 +91,11 @@ const Wishlist = () => {
                   <th
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
-                    className="cursor-pointer border px-4 py-2 bg-gray-100 whitespace-nowrap"
+                    className={`cursor-pointer border px-4 py-2 whitespace-nowrap ${
+                      theme === "dark"
+                        ? "bg-gray-800 border-gray-700"
+                        : "bg-gray-100 border-gray-300"
+                    }`}
                     title={header.column.getCanSort() ? "Click to sort" : ""}
                   >
                     <div className="flex items-center gap-1">
@@ -101,11 +115,18 @@ const Wishlist = () => {
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className="hover:bg-gray-50">
+              <tr
+                key={row.id}
+                className={`${
+                  theme === "dark" ? "hover:bg-gray-800" : "hover:bg-gray-50"
+                }`}
+              >
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
-                    className="border px-4 py-2 whitespace-nowrap truncate max-w-xs"
+                    className={`border px-4 py-2 whitespace-nowrap truncate max-w-xs ${
+                      theme === "dark" ? "border-gray-700" : "border-gray-300"
+                    }`}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>

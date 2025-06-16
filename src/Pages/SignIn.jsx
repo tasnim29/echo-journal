@@ -10,7 +10,7 @@ import Lottie from "lottie-react";
 
 const Login = () => {
   const navigation = useNavigate();
-  const { userLogin, googleLogin, setUser } = use(AuthContext);
+  const { userLogin, googleLogin, setUser, theme } = use(AuthContext);
   // passwordShow toggle
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
@@ -61,7 +61,11 @@ const Login = () => {
       });
   };
   return (
-    <div className="w-full  max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500  ">
+    <div
+      className={`w-full max-w-5xl mx-auto px-4 py-6 sm:px-6 sm:py-10 shadow-2xl rounded-md my-10 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-500 ${
+        theme === "dark" ? "border-4 border-yellow-500" : ""
+      }`}
+    >
       <div className="mb-8 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-[#d72050] mb-2">
           Log In
@@ -88,7 +92,11 @@ const Login = () => {
                 name="email"
                 id="email"
                 placeholder="Enter your email address"
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className={`w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
             </div>
 
@@ -105,11 +113,17 @@ const Login = () => {
                 name="password"
                 id="password"
                 placeholder="*****"
-                className="w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base"
+                className={`w-full px-3 py-2 border border-[#f3f4f6] rounded-md bg-[#f9fafb] placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-sm sm:text-base ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-9 cursor-pointer text-[#374151]"
+                className={`absolute right-4 top-9 cursor-pointer  ${
+                  theme === "dark" ? "text-white" : "text-[#374151]"
+                }`}
               >
                 {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
               </span>

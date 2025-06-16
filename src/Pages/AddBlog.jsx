@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import UseAxiosSecure from "../AxiosHooks/UseAxiosSecure";
 
 const AddBlog = () => {
-  const { user } = use(AuthContext);
+  const { user, theme } = use(AuthContext);
   const axiosSecure = UseAxiosSecure();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,12 +31,26 @@ const AddBlog = () => {
       });
   };
   return (
-    <div className="w-full max-w-5xl mx-auto px-6 py-8 sm:px-10 sm:py-12 shadow-2xl rounded-lg my-12 bg-white border border-[#f3f4f6]">
+    <div
+      className={`w-full transition-colors duration-1000 ease-in-out max-w-5xl mx-auto px-6 py-8 sm:px-10 sm:py-12 shadow-2xl rounded-lg my-12   ${
+        theme === "dark"
+          ? "bg-gray-900 border border-yellow-500"
+          : "bg-white border border-[#f3f4f6]"
+      }`}
+    >
       <div className="mb-10 text-center">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#d72050]  mb-3">
+        <h1
+          className={`text-2xl md:text-5xl font-bold  mb-3 ${
+            theme === "dark" ? "text-yellow-500" : "text-[#d72050]"
+          }`}
+        >
           Add Your Blog
         </h1>
-        <p className="text-base sm:text-lg text-[#374151]">
+        <p
+          className={`text-base  md:text-lg text-center ${
+            theme === "dark" ? "text-base-200" : "text-gray-500"
+          }`}
+        >
           Fill in the form below to publish your blog!
         </p>
       </div>
@@ -58,7 +72,11 @@ const AddBlog = () => {
               name="title"
               type="text"
               placeholder="Please enter your blog title"
-              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+              className={`w-full mt-2 px-4 py-3 border rounded-lg placeholder-[#9ca3af] text-base sm:text-lg transition ${
+                theme === "dark"
+                  ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                  : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+              }`}
             />
           </div>
 
@@ -74,7 +92,11 @@ const AddBlog = () => {
               name="imageURL"
               type="text"
               placeholder="Enter image URL"
-              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+              className={`w-full mt-2 px-4 py-3 border rounded-lg placeholder-[#9ca3af] text-base sm:text-lg transition ${
+                theme === "dark"
+                  ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                  : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+              }`}
             />
           </div>
 
@@ -91,7 +113,11 @@ const AddBlog = () => {
                 name="address"
                 type="text"
                 placeholder="Enter address"
-                className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+                className={`w-full mt-2 px-4 py-3 border rounded-lg placeholder-[#9ca3af] text-base sm:text-lg transition ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
             </div>
             <div className="w-full sm:w-1/2">
@@ -106,7 +132,11 @@ const AddBlog = () => {
                 name="photoURL"
                 type="text"
                 defaultValue={user.photoURL}
-                className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+                className={`w-full mt-2 px-4 py-3 border rounded-lg placeholder-[#9ca3af] text-base sm:text-lg transition ${
+                  theme === "dark"
+                    ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                    : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+                }`}
               />
             </div>
           </div>
@@ -122,7 +152,11 @@ const AddBlog = () => {
               id="category"
               name="category"
               defaultValue="Pick a category"
-              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+              className={`w-full mt-2 px-4 py-3 border rounded-lg text-base sm:text-lg transition ${
+                theme === "dark"
+                  ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                  : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+              }`}
             >
               <option disabled>Pick a category</option>
               <option>Technology</option>
@@ -144,7 +178,11 @@ const AddBlog = () => {
               name="name"
               type="text"
               placeholder="Your name"
-              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+              className={`w-full mt-2 px-4 py-3 border rounded-lg placeholder-[#9ca3af] text-base sm:text-lg transition ${
+                theme === "dark"
+                  ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                  : "bg-white text-gray-900 border-gray-300 focus:ring-[#d72050]"
+              }`}
             />
           </div>
 
@@ -159,7 +197,11 @@ const AddBlog = () => {
               id="short"
               name="short"
               placeholder="Shortly write about your blog"
-              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+              className={`w-full mt-2 px-4 py-3 border rounded-lg text-base sm:text-lg transition ${
+                theme === "dark"
+                  ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                  : "bg-white text-[#374151] border-gray-300 focus:ring-[#d72050]"
+              }`}
             ></textarea>
           </div>
 
@@ -175,7 +217,11 @@ const AddBlog = () => {
               name="long"
               rows="6"
               placeholder="Write your blog briefly"
-              className="w-full mt-2 px-4 py-4 border border-gray-300 rounded-lg bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#d72050] text-base sm:text-lg transition"
+              className={`w-full mt-2 px-4 py-3 border rounded-lg text-base sm:text-lg transition ${
+                theme === "dark"
+                  ? "bg-gray-800 text-gray-100 border-gray-600 focus:ring-yellow-500"
+                  : "bg-white text-[#374151] border-gray-300 focus:ring-[#d72050]"
+              }`}
             ></textarea>
           </div>
 

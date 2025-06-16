@@ -1,9 +1,11 @@
 import Lottie from "lottie-react";
-import React from "react";
+import React, { use } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import myAnimation from "../assets/newsletterAnimation.json";
+import { AuthContext } from "../Context/AuthContext";
 
 const NewsLetter = () => {
+  const { theme } = use(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     toast.success("Thank you for subscribing to our newsletter");
@@ -12,7 +14,7 @@ const NewsLetter = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <h1 className="text-center text-[#d72050] text-4xl font-bold mb-6">
+      <h1 className="text-center text-[#d72050] text-2xl md:text-6xl font-bold mb-6">
         Newsletter
       </h1>
       <div className="flex flex-col md:flex-row items-center gap-6 justify-center">
@@ -21,7 +23,11 @@ const NewsLetter = () => {
         </div>
 
         <div className="md:max-w-md lg:col-span-2">
-          <p className="text-primary text-center md:text-left font-medium">
+          <p
+            className={`text-center md:text-left font-medium ${
+              theme === "dark" ? "text-yellow-500" : "text-primary"
+            }`}
+          >
             Subscribe for updates
           </p>
           <form
@@ -31,8 +37,10 @@ const NewsLetter = () => {
             <input
               placeholder="Email"
               required
-              type="text"
-              className="flex-grow w-full h-12 px-4 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-primary focus:outline-none focus:shadow-outline"
+              type="email"
+              className={`flex-grow w-full h-12 px-4 transition duration-200 bg-white border border-gray-300 text-gray-900 rounded shadow-sm appearance-none focus:border-primary focus:outline-none focus:shadow-outline ${
+                theme === "dark" ? "border-3 border-orange-500 " : ""
+              }`}
             />
             <button
               type="submit"
@@ -41,7 +49,11 @@ const NewsLetter = () => {
               Subscribe
             </button>
           </form>
-          <p className="mt-4 text-sm text-gray-500">
+          <p
+            className={` text-sm mt-5 ${
+              theme === "dark" ? "text-base-200" : "text-gray-500"
+            }`}
+          >
             We promise to only send useful content—no spam, just stories worth
             reading.
           </p>
