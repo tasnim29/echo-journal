@@ -16,7 +16,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 2.purpose : The purpose of a blog website is to share content, information, or opinions with an audience in a structured, engaging, and accessible format
 
-3.live URL :
+3.live URL :https://assignment-11-f3a27.web.app/
 
 4.key features : users can add blog,update his blog,can comment on others blog , add wishlist to a blog and applied jwt
 
