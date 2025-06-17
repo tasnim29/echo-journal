@@ -21,7 +21,7 @@ const SignUp = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    console.log(name, email, photo, password);
+    // console.log(name, email, photo, password);
 
     const hasNumber = /(?=.*\d)/.test(password);
 
@@ -44,7 +44,7 @@ const SignUp = () => {
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...userInformation, displayName: name, photoURL: photo });
-            console.log(userInformation);
+            // console.log(userInformation);
 
             toast.success("Successfully Registered");
             setTimeout(() => navigation("/"), 1500);
@@ -65,7 +65,7 @@ const SignUp = () => {
     googleLogin()
       .then((userCredential) => {
         const userInformation = userCredential.user;
-        console.log(userInformation);
+        // console.log(userInformation);
         setUser(userInformation);
         toast.success("Successfully Signed in");
         setTimeout(() => navigation("/"), 1500);

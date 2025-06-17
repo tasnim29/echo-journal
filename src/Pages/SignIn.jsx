@@ -22,13 +22,13 @@ const Login = () => {
     const email = form.email.value;
 
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     // login
     userLogin(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         setUser(user);
         toast.success("Successfully Signed in");
         setTimeout(
@@ -46,7 +46,7 @@ const Login = () => {
     googleLogin()
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         setUser(user);
         toast.success("Successfully Signed in");
         setTimeout(

@@ -21,7 +21,7 @@ const FeaturedBlog = () => {
     setLoading(true);
     axios("https://assignment-11-server-delta-nine.vercel.app/topBlogs")
       .then((data) => {
-        console.log(data?.data);
+        // console.log(data?.data);
         setBlogs(data?.data);
         setLoading(false);
       })

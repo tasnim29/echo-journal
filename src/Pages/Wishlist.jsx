@@ -29,7 +29,7 @@ const Wishlist = () => {
   }, [user, axiosSecure]);
 
   const handleRemove = (id) => {
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
