@@ -85,7 +85,7 @@ npm install
 # Install dependencies for server
 cd ../server
 npm install
-
+```
 
 ### 🔐 Environment Setup
 
