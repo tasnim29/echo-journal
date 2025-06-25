@@ -26,10 +26,8 @@ Next-Gen Blog Website is a modern, full-featured, and mobile-responsive blog pla
 - **MongoDB** – Database for blogs, comments, wishlist  
 - **JWT** – Securing private routes  
 - **Framer Motion** – UI animations  
-- **TanStack Table** – Sortable data tables  
-- **React Hook Form** – Form handling  
-- **Chakra UI** – Component library  
-- **React Loading Skeleton** – Placeholder loading UI  
+- **TanStack Table** – Sortable data tables   
+- **Daisy UI** – Component library   
 - **React Photo View** – Fullscreen image preview  
 - **React Intersection Observer** – Scroll-based animation triggers  
 
@@ -42,11 +40,10 @@ Next-Gen Blog Website is a modern, full-featured, and mobile-responsive blog pla
 - 💬 Blog comments (except on own blog)  
 - ❤️ Wishlist add/remove per user  
 - 🔍 Blog search with MongoDB full-text search  
-- 📊 Featured blogs based on word count, shown in sortable table  
+- 📊 Featured blogs based on word count, shown in a sortable table  
 - 📩 Newsletter input with toast message  
 - 🖼️ Fullscreen blog image preview  
-- 🌀 Smooth UI transitions with Framer Motion  
-- ⚡ Loading skeletons instead of spinners  
+- 🌀 Smooth UI transitions with Framer Motion   
 - 📱 Fully responsive for mobile, tablet, and desktop  
 
 ---
@@ -57,11 +54,11 @@ Next-Gen Blog Website is a modern, full-featured, and mobile-responsive blog pla
 - `react`, `react-router-dom`, `firebase`, `framer-motion`  
 - `@tanstack/react-table`, `react-hook-form`, `axios`  
 - `react-photo-view`, `react-intersection-observer`  
-- `react-loading-skeleton`, `chakra-ui/react`
+- `daisy-ui/react`
 
 **Server:**
 - `express`, `cors`, `dotenv`, `mongoose`  
-- `jsonwebtoken`, `bcryptjs`, `cookie-parser`
+- `firebasetoken`
 
 ---
 
