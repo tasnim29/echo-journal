@@ -1,23 +1,82 @@
-# React + Vite
+# EchoJournal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-Currently, two official plugins are available:
+# Next-Gen Blog Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Blog Website Screenshot](https://i.ibb.co/MyHtzFmR/Screenshot-2025-06-25-105204.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📌 Project Overview
 
-<!-- --- -->
+Next-Gen Blog Website is a modern, full-featured, and mobile-responsive blog platform. Users can create, update, and browse blogs, manage wishlists, comment on others' posts, and explore featured blogs with sortable tables. It’s optimized for user experience, performance, and visual design—ideal for showcasing your front-end skills.
 
-1.Project Name : EchoJournal
+---
 
-2.purpose : The purpose of a blog website is to share content, information, or opinions with an audience in a structured, engaging, and accessible format
+## 🚀 Live Demo
 
-3.live URL :https://assignment-11-f3a27.web.app/
+🔗 [Live Site](https://assignment-11-f3a27.web.app/)
 
-4.key features : users can add blog,update his blog,can comment on others blog , add wishlist to a blog and applied jwt
+---
 
-5.npm packages : @tanstack/react-table, aos, axios, firebase, lottie-react, motion, react, react-dom, react-icons, react-photo-view, react-router, react-toastify, sweetalert2, swiper, tailwindcss
+## ⚙️ Technology Stack
+
+- **React** – Frontend UI  
+- **Firebase** – Auth, hosting, and database  
+- **Node.js & Express** – Backend server and API  
+- **MongoDB** – Database for blogs, comments, wishlist  
+- **JWT** – Securing private routes  
+- **Framer Motion** – UI animations  
+- **TanStack Table** – Sortable data tables  
+- **React Hook Form** – Form handling  
+- **Chakra UI** – Component library  
+- **React Loading Skeleton** – Placeholder loading UI  
+- **React Photo View** – Fullscreen image preview  
+- **React Intersection Observer** – Scroll-based animation triggers  
+
+---
+
+## ✨ Key Features
+
+- 🔒 Private routes using JWT  
+- 📝 Blog creation, update, and category filtering  
+- 💬 Blog comments (except on own blog)  
+- ❤️ Wishlist add/remove per user  
+- 🔍 Blog search with MongoDB full-text search  
+- 📊 Featured blogs based on word count, shown in sortable table  
+- 📩 Newsletter input with toast message  
+- 🖼️ Fullscreen blog image preview  
+- 🌀 Smooth UI transitions with Framer Motion  
+- ⚡ Loading skeletons instead of spinners  
+- 📱 Fully responsive for mobile, tablet, and desktop  
+
+---
+
+## 📦 Dependencies
+
+**Client:**
+- `react`, `react-router-dom`, `firebase`, `framer-motion`  
+- `@tanstack/react-table`, `react-hook-form`, `axios`  
+- `react-photo-view`, `react-intersection-observer`  
+- `react-loading-skeleton`, `chakra-ui/react`
+
+**Server:**
+- `express`, `cors`, `dotenv`, `mongoose`  
+- `jsonwebtoken`, `bcryptjs`, `cookie-parser`
+
+---
+
+## 🧑‍💻 Getting Started
+
+### ✅ Prerequisites
+
+- Node.js & npm installed  
+- Firebase project set up  
+- MongoDB cluster or local DB set up  
+
+---
+
+### 📁 Installation
+
+#### Clone the repository:
+```bash
+git clone https://github.com/yourusername/your-blog-repo.git
