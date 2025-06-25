@@ -78,3 +78,23 @@ Next-Gen Blog Website is a modern, full-featured, and mobile-responsive blog pla
 ```bash
 git clone https://github.com/yourusername/your-blog-repo.git
 
+# Install dependencies for client
+cd echojournal/client
+npm install
+
+# Install dependencies for server
+cd ../server
+npm install
+
+
+### 🔐 Environment Setup
+
+#### Client (.env)
+```env
+VITE_API_URL=https://your-server-url.com
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
