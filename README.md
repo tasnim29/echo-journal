@@ -133,6 +133,6 @@ Then open your browser and go to 👉 http://localhost:3000
 
 ## 🔗 Relevant Links
 
-📑 API Docs (Postman): https://documenter.getpostman.com/view/your-doc-id
+📑 Beeceptor(CRUD) : https://beeceptor.com/docs/crud-api/
 
-🔥 Firebase Dashboard: https://console.firebase.google.com/project/f3a27
+🔥 Firebase Docs: https://firebase.google.com/docs
